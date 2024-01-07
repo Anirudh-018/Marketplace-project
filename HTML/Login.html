@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/a8a5628703.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgba(0, 0, 0, 0.79);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .nav {
+        display: inline-flex;
+        width: 100%;
+      }
+      .logo {
+        display: flex;
+        width: 15%;
+      }
+      .links {
+        display: flex;
+        justify-content: end;
+        width: 85%;
+      }
+      .item {
+        margin-left: 16px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .signup {
+        background-color: rgb(149, 66, 226);
+        border-radius: 15px;
+        padding: 16px;
+      }
+      .container {
+        display: flex;
+        height: 80vh;
+        justify-content: space-between;
+      }
+      .image {
+        display: flex;
+        width: 45%;
+        height: 80vh;
+      }
+      .create {
+        display: flex;
+        width: 45%;
+        flex-direction: column;
+        justify-content: center;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .input-container {
+        display: flex;
+        width: 50%;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        border: 10px solid white;
+      }
+      .submit{
+        width: 50%;
+        border-radius: 20px;
+        border: 10px solid rgb(149, 66, 226);
+        background-color: rgb(149, 66, 226);
+        font-size: large;
+        font-weight: bold;
+        color: white;
+      }
+      .icon {
+        padding: 10px;
+        background: white;
+        color: black;
+        min-width: 50px;
+        text-align: center;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 10px;
+        outline: none;
+        border:0px;
+      } 
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="logo">
+        <i class="fa-solid fa-store item"></i>
+        <b class="item">Art Marketplace</b>
+      </div>
+      <div class="links">
+        <div class="item">Marketpace</div>
+        <div class="item">Rankings</div>
+        <div class="item">Connect a Wallet</div>
+        <a class="item"
+          ><div class="signup"><i class="fa-solid fa-store"></i>Sign Up</div></a
+        >
+      </div>
+    </div>
+    <div class="container">
+      <div class="image">
+        <img src="../Images/mona-lisa.jpeg" style="width: 100%" />
+      </div>
+      <div class="create">
+        <h1>Create Account</h1>
+        <h2>
+          Welcome! Enter Your Details And Start <br />Creating, Collecting And
+          Selling Art Works
+        </h2>
+        <form>
+          <div class="input-container">
+            <i class="fa-solid fa-user icon"></i>
+            <input class="input-field" type="text" placeholder="Username" name="name">
+          </div>
+          <div class="input-container">
+            <i class="fa-solid fa-envelope icon"></i>
+            <input class="input-field" type="email" placeholder="Email" name="mail">
+          </div>
+          <div class="input-container">
+            <i class="fa-solid fa-lock icon"></i>
+            <input class="input-field" type="password" placeholder="Password" name="password">
+          </div>
+          <div class="input-container">
+            <i class="fa-solid fa-lock icon"></i>
+            <input class="input-field" type="password" placeholder="Confirm Password" name="confirm-pass">
+          </div>
+          <button type="submit" class="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
