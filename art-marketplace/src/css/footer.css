@@ -1,0 +1,18 @@
+.iconMarket {
+  color: rgb(149, 66, 226);
+  height: 100%;
+  width: fit-content;
+}
+.footer-logo {
+  display: flex;
+  width: 15%;
+  padding: 10px;
+}
+.item {
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  color: white;
+}

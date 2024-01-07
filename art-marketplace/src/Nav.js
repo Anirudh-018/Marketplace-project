@@ -1,5 +1,5 @@
-import "./Nav.css";
-import * as icons from "react-icons/bs";
+import { Link } from "react-router-dom";
+import "./css/Nav.css";
 import { CiShop } from "react-icons/ci";
 function Nav() {
   return (
@@ -11,8 +11,8 @@ function Nav() {
       <div className="links">
         <div className="item">Marketpace</div>
         <div className="item">Rankings</div>
-        <div className="item">Connect a Wallet</div>
-        <a className="item">
+        <Link to='/login' className="item">Connect a Wallet</Link>
+        <a className="item" href="Login.html">
           <div className="signup">
             <button><CiShop className="iconSignup"/><b>Hello</b></button>
           </div>

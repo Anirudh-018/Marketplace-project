@@ -1,11 +1,12 @@
-import "./signup.css";
+import "./css/signup.css";
 import monaLisa from "./images/mona-lisa.jpeg";
 import * as icons from "react-icons/bs";
 import Nav from "./Nav";
+import Footer from "./Footer";
 function SignUp() {
   return (
-    <body>
-        <Nav/>
+    <div>
+      <Nav/>
       <div className="container">
         <div className="image">
           <img src={monaLisa} alt="monalisa" />
@@ -59,7 +60,8 @@ function SignUp() {
           </form>
         </div>
       </div>
-    </body>
+      <Footer/>
+    </div>
   );
 }
 
