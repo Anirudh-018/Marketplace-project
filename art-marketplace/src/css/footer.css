@@ -5,14 +5,61 @@
 }
 .footer-logo {
   display: flex;
-  width: 15%;
-  padding: 10px;
+  width: 100%;
 }
 .item {
-  margin-left: 16px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-decoration: none;
   color: white;
+  margin:16px;
+}
+.footer {
+  display: flex;
+  margin: 20px;
+  padding: 16px;
+}
+.desc {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.join {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.letter{
+  position: absolute;
+  left:0;
+  margin-left: 16px;
+  height:100%;
+  width:30%;
+  border-radius: 15px 0px 0px 15px;
+  border:0px solid;
+  position: relative;
+  height: 100%;
+}
+.btn{
+  position: absolute;
+  width:10%;
+  left:25%;
+  background-color: blueviolet;
+  color:white;
+  font-weight: bold;
+  margin-left:15%;
+  border-radius: 15px;
+  height:100%;
+  text-align: center;
+  margin:0px;
+  border:0px;
+}
+.input{
+  display: flex;
+  margin-top: 16px;
+  height:50px;
+  width:100%;
+  position: relative;
 }
