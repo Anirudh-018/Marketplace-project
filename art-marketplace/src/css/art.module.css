@@ -1,0 +1,57 @@
+.searchbar {
+  width: 95%;
+  background-color: transparent;
+  border:0px;
+}
+.searchbar:focus{
+    border:0px;
+    outline: none;
+}
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-bottom: 16px;
+  height:5vh
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  border-radius: 15px;
+  width: 500px;
+  height: 550px;
+}
+.card img {
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+}
+h1 {
+  font-size: 60px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.content{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap:10%;
+    margin-bottom: 10%;
+}
+.head{
+    margin:20px
+}
+.iconMarket {
+    color:wheat;
+    font-size: 20px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5%;
+  }
