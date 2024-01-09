@@ -1,11 +1,9 @@
 .iconMarket {
   color: rgb(149, 66, 226);
-  height: 100%;
   width: fit-content;
 }
 .footer-logo {
   display: flex;
-  width: 100%;
 }
 .item {
   display: flex;
@@ -40,6 +38,7 @@
   border-radius: 15px 0px 0px 15px;
   border:0px solid;
   position: relative;
+  outline: none;
   height: 100%;
 }
 .btn{

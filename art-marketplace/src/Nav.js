@@ -12,9 +12,9 @@ function Nav() {
         <div className="item">Marketpace</div>
         <div className="item">Rankings</div>
         <Link to='/login' className="item">Connect a Wallet</Link>
-        <a className="item" href="Login.html">
+        <a className="item" href="#">
           <div className="signup">
-            <button><CiShop className="iconSignup"/><b>Hello</b></button>
+            <button><CiShop className="iconSignup"/><b><Link to='/login'>Login</Link></b></button>
           </div>
         </a>
       </div>
