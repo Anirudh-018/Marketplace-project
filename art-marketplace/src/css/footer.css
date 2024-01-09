@@ -15,8 +15,8 @@
 }
 .footer {
   display: flex;
-  margin: 20px;
   padding: 16px;
+  border-radius: 15px;
 }
 .desc {
   display: flex;
@@ -61,4 +61,14 @@
   height:50px;
   width:100%;
   position: relative;
+}
+.logo{
+  font-size: 40px;
+  margin: 10px;
+  color: blueviolet;
+}
+.social{
+  display: flex;
+  margin-top: 16px;
+  margin-left: 0px;
 }

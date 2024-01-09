@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import Nav from "./Nav";
 import classes from "./css/home.module.css";
 import art from "./images/home-art.jpeg";
@@ -117,6 +118,25 @@ function Home() {
           </div>
         </div>
       </div>
+      <h1>How It Works</h1>
+      <h3>
+        <b>Know how the marketplace works</b>
+      </h3>
+      <div className={classes.steps}>
+        <div className={classes.stepItem}>
+          <h3>SignUp in the marketplace</h3>
+          <h4>skfnsfnsafnkasfnksafajf<br/>jkjabsfabfajsbfajf</h4>
+        </div>
+        <div className={classes.stepItem}>
+          <h3>SignUp in the marketplace</h3>
+          <h4>skfnsfnsafnkasfnksafajf<br/>jkjabsfabfajsbfajf</h4>
+        </div>
+        <div className={classes.stepItem}>
+          <h3>SignUp in the marketplace</h3>
+          <h4>skfnsfnsafnkasfnksafajf<br/>jkjabsfabfajsbfajf</h4>
+        </div>
+      </div>
+      <Footer/>
     </div>
   );
 }

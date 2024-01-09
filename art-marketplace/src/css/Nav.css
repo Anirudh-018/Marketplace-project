@@ -5,7 +5,7 @@
 .iconMarket {
   color: rgb(149, 66, 226);
   height: 100%;
-  width: fit-content;
+  /* width: fit-content; */
 }
 .iconSignup {
   color: white;
