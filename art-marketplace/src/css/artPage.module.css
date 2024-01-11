@@ -1,0 +1,69 @@
+.art {
+  height: 50vh;
+}
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 5%;
+  margin: 30px;
+}
+.price {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  border-radius: 15px;
+  height: 40%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.btn {
+  background-color: blueviolet;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 9%;
+  border-radius: 10px;
+  height: 30%;
+}
+.otherTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  margin: 0px 16px 0px 16px;
+}
+.otherBtn {
+  background-color: blueviolet;
+  width: 12%;
+  border-radius: 15px;
+  color: white;
+  font-size: large;
+  display: flex;
+  justify-content: space-around;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  border-radius: 15px;
+  width: 500px;
+  height: 550px;
+}
+.card img {
+  border-radius: 15px 15px 0px 0px;
+  width: 100%;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.otherContent{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    gap: 5%;
+    margin: 0px 5px 0px 32px;
+    margin-bottom: 10%;
+}
