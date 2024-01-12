@@ -1,5 +1,5 @@
 .nav {
-  display: inline-flex;
+  display:flex;
   width: 100%;
 }
 .iconMarket {
@@ -14,7 +14,7 @@
 }
 .logo {
   display: flex;
-  width: 15%;
+  width: 18%;
 }
 .links {
   display: flex;
@@ -33,14 +33,20 @@
   background-color: rgb(149, 66, 226);
   border-radius: 15px;
   padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 button {
   background-color: transparent;
   border: 0px solid;
   display: flex;
   justify-content: center;
+  align-items: center;
+  color: white;
 }
-button b {
+button a {
   margin-top: 10%;
   color: white;
+  margin-top: 30px;
 }

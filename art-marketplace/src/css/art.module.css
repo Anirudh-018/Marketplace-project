@@ -4,7 +4,7 @@
   border:0px;
 }
 .searchbar:focus{
-    border:0px;
+    border:2px solid white;
     outline: none;
 }
 .search {
@@ -32,7 +32,7 @@ h1 {
   font-size: 60px;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 16px 0 rgba(247, 242, 242, 0.5);
 }
 
 .container {

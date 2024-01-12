@@ -6,7 +6,7 @@ function Nav() {
     <div className="nav">
       <div className="logo">
         <CiShop className="iconMarket"/>
-        <b className="item">Art Marketplace</b>
+        <b className="item">Art Market</b>
       </div>
       <div className="links">
         <div className="item">Marketpace</div>

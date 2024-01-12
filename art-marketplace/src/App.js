@@ -5,6 +5,7 @@ import Login from "./Login";
 import Home from "./Home";
 import Art from "./Art";
 import ArtPage from "./ArtPage";
+import Profile from "./Profile";
 function App() {
   return (
     <div>
@@ -18,6 +19,8 @@ function App() {
         <Route path="/art" element={<Art/>}>
         </Route>
         <Route path="/artPage" element={<ArtPage/>}>
+        </Route>
+        <Route path="/profile" element={<Profile/>}>
         </Route>
       </Routes>
     </div>

@@ -16,8 +16,11 @@
 h1 {
   font-size: 60px;
 }
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+.latest .card:hover {
+  position: relative;
+  box-shadow: 0 8px 16px 0 rgba(247, 242, 242, 0.5);
+  height:575px;
+  width:525px;
 }
 
 .container {
@@ -56,6 +59,7 @@ h1 {
   border-radius: 25px;
 }
 .latest {
+  position: sticky;
   display: flex;
   justify-content: space-between;
   margin: 16px;
@@ -67,8 +71,18 @@ h1 {
   margin:16px;
 }
 .stepItem {
-box-shadow: 0 4px 8px 0 rgb(0, 0, 0); /* Adjusted alpha value to 0.5 */
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0); /* Adjusted alpha value to 0.5 */
   transition: 0.3s;
   border-radius: 15px;
   padding: 16px;
+}
+.stepItem:hover{
+  box-shadow: 0 8px 16px 0 rgba(247, 242, 242, 0.5);
+
+}
+body h1,h3{
+  margin-left: 16px;
+}
+h4{
+  margin-left: 16px;
 }

@@ -13,7 +13,7 @@ function ArtPage() {
           <h1>The Orbitans</h1>
           <h3>Published on 13.10.2023</h3>
           <h3>Descriptions</h3>
-          <p>
+          <p className={classes.innerText}>
             The orbitans
             <br />
             Lorem Ipsum is simply dummy text of the printing and typesetting
