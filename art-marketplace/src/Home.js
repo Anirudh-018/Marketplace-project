@@ -20,19 +20,19 @@ function Home() {
           </h3>
           <div className={classes.initContent}>
             <h3>
-              240k+
+              <span></span>k+ 
               <br />
               sales
             </h3>
             <h3>
-              100k+
+              <span></span>k+ 
               <br />
               users
             </h3>
             <h3>
-              200k+
+              <span></span>k+ 
               <br />
-              artists
+              artist
             </h3>
           </div>
         </div>

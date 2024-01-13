@@ -1,6 +1,9 @@
 .nav {
   display:flex;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.388);
+  padding: 10px;
+  border-radius: 10px;
 }
 .iconMarket {
   color: rgb(149, 66, 226);
@@ -14,12 +17,13 @@
 }
 .logo {
   display: flex;
-  width: 18%;
+  width: 18%; 
 }
 .links {
   display: flex;
   justify-content: flex-end;
   width: 85%;
+  align-items: center;
 }
 .item {
   margin-left: 16px;

@@ -5,18 +5,24 @@ function Nav() {
   return (
     <div className="nav">
       <div className="logo">
-        <CiShop className="iconMarket"/>
-        <b className="item">Art Market</b>
+        <CiShop className="iconMarket" />
+        <Link to="/"><b className="item">Art Market</b></Link>
       </div>
       <div className="links">
-        <div className="item">Marketpace</div>
+        <Link to="/art">
+          <div className="item">Marketpace</div>
+        </Link>
         <div className="item">Rankings</div>
-        <Link to='/login' className="item">Connect a Wallet</Link>
-        <a className="item" href="#">
+        <Link to="/login">
           <div className="signup">
-            <button><CiShop className="iconSignup"/><b><Link to='/login'>Login</Link></b></button>
+            <button>
+              <CiShop className="iconSignup" />
+              <b>
+                <Link to="/login">Login</Link>
+              </b>
+            </button>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

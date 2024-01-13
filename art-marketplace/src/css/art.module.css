@@ -1,21 +1,22 @@
 .searchbar {
   width: 95%;
   background-color: transparent;
-  border:0px;
+  border: 0px;
 }
-.searchbar:focus{
-    border:2px solid white;
-    outline: none;
+.searchbar:focus {
+  border: 2px solid white;
+  outline: none;
 }
 .search {
-  width: 100%;
+  width: 98%;
   display: flex;
   justify-content: space-around;
   background-color: transparent;
   border: 1px solid black;
   border-radius: 15px;
   margin-bottom: 16px;
-  height:5vh
+  height: 5vh;
+  margin:16px;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -38,20 +39,23 @@ h1 {
 .container {
   padding: 2px 16px;
 }
-.content{
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-    gap:10%;
-    margin-bottom: 10%;
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 10%;
+  margin-bottom: 10%;
+  margin-left: 16px;
+  margin-right: 16px;
 }
-.head{
-    margin:20px
-}
+
 .iconMarket {
-    color:wheat;
-    font-size: 20px;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5%;
-  }
+  color: wheat;
+  font-size: 20px;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5%;
+}
+h4{
+  margin-left:-1px;
+}

@@ -1,6 +1,7 @@
 .init {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 3%;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -85,4 +86,26 @@ body h1,h3{
 }
 h4{
   margin-left: 16px;
+}
+
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+span {
+  animation: counter 5s  forwards alternate ease-in-out;
+  counter-reset: num var(--num);
+  font: 800 40px system-ui;
+}
+span::after {
+  content: counter(num);
+}
+@keyframes counter {
+  from {
+    --num: 0;
+  }
+  to {
+    --num: 100;
+  }
 }
