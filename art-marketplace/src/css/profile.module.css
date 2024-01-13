@@ -1,12 +1,12 @@
 .overlay {
-  height: 40vh;
+  height: 35vh;
   width: 100%;
   position: relative;
 }
 
 .back {
   position: relative;
-  height: 40vh;
+  height:35vh;
   width: 100%;
 }
 
@@ -23,12 +23,11 @@
 .container{
     display: flex;
     flex-wrap: wrap;
-    height:60vh;
+    height:40vh;
     width: 100%;
 }
 .content{
     display: flex;
-    margin: 16px;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -37,9 +36,10 @@
     width:50%;
 }
 .right{
-    width:50%;
+    width:45%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-left: 16px;
 }
 .btn{
     background-color: blueviolet;
@@ -48,13 +48,30 @@
     height:50px;
     align-items: center;
     border-radius: 20px;
+    margin-right: 10px;
 }
 .btni{
     background-color: transparent;
     border-radius: 20px;
     border:2px solid blueviolet;
-    color: blueviolet;
+    color: white;
     width: 200px;
     height:50px;
+    align-items: center;
+    margin-right: 10px;
+}
+.lc{
+    margin-left: 16px;
+}
+.lc h2{
+    font-size: 60px;
+}
+.item{
+    font-size: 50px;
+}
+.social{
+    width:25%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
