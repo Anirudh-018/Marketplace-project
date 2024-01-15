@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import classes from "./css/profile.module.css";
 import art from "./images/home-art.jpeg";
+import { Link } from "react-router-dom";
 function Profile() {
   return (
     <div>
@@ -29,9 +30,9 @@ function Profile() {
           </div>
         </div>
         <div className={classes.right}>
-          <button className={classes.btn}>Buy</button>
-          <button className={classes.btni}>Sell</button>
-          <button className={classes.btn}>EditProfile</button>
+          <Link className={classes.btn}>Buy</Link>
+          <Link className={classes.btni} to='/sell'>Sell</Link>
+          <Link className={classes.btn}>EditProfile</Link>
         </div>
       </div>
       <Footer />

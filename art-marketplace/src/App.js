@@ -6,6 +6,7 @@ import Home from "./Home";
 import Art from "./Art";
 import ArtPage from "./ArtPage";
 import Profile from "./Profile";
+import Sell from "./Sell";
 function App() {
   return (
     <div>
@@ -21,6 +22,8 @@ function App() {
         <Route path="/artPage" element={<ArtPage/>}>
         </Route>
         <Route path="/profile" element={<Profile/>}>
+        </Route>
+        <Route path="/sell" element={<Sell/>}>
         </Route>
       </Routes>
     </div>

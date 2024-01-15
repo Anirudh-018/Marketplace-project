@@ -3,6 +3,7 @@ import classes from "./css/artPage.module.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import { CiLocationArrow1 } from "react-icons/ci";
+import { Link } from "react-router-dom";
 function ArtPage() {
   return (
     <div>
@@ -67,10 +68,10 @@ function ArtPage() {
         <div className={classes.otherTitle}>
           <h1>More from this artist</h1>
           <button className={classes.otherBtn}>
-            <p>
+            <Link to="/profile" className={classes.link}>
               Go to artist page
               <CiLocationArrow1 />
-            </p>
+            </Link>
           </button>
         </div>
         <div className={classes.otherContent}>

@@ -1,0 +1,36 @@
+.sell {
+  margin: 0px 16px 0px 16px;
+}
+.image {
+  width: 50%;
+  height: 500px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.icon {
+  color: black;
+  height: 100%;
+}
+.input-field {
+  width: 50%;
+  padding: 10px;
+  outline: none;
+  border: 0px;
+  background-color: white;
+}
+.input-container {
+  display: flex;
+  width: 50%;
+  margin-bottom: 15px;
+  border-radius: 20px;
+  border: 10px solid white;
+}
+.upload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input[type="file"]{
+    background-color: white;
+}

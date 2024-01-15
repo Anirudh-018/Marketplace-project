@@ -39,8 +39,6 @@
   border-radius: 15px;
   color: white;
   font-size: large;
-  display: flex;
-  justify-content: space-around;
   margin-right: 54px;
 }
 .card {
@@ -71,4 +69,7 @@
 .innerText{
   line-height: 25px;
   margin-left: 16px;
+}
+.link{
+  margin-bottom: 25px;
 }
