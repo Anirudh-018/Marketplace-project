@@ -30,7 +30,7 @@ function Profile() {
           </div>
         </div>
         <div className={classes.right}>
-          <Link className={classes.btn}>Buy</Link>
+          <Link className={classes.btn} to='/art'>Buy</Link>
           <Link className={classes.btni} to='/sell'>Sell</Link>
           <Link className={classes.btn}>EditProfile</Link>
         </div>

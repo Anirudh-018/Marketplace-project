@@ -8,6 +8,10 @@
   border-radius: 20px;
   border: 10px solid white;
 }
+.input-container.invalid {
+  border: 8px solid #A52A2A;
+  border-radius: 20px;
+}
 .submit {
   width: 50%;
   border-radius: 20px;
