@@ -2,9 +2,9 @@
   width: 95%;
   background-color: transparent;
   border: 0px;
+  color: white;
 }
 .searchbar:focus {
-  border: 2px solid white;
   outline: none;
 }
 .search {
@@ -17,6 +17,7 @@
   margin-bottom: 16px;
   height: 5vh;
   margin:16px;
+  color:white;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);

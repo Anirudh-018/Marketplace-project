@@ -18,6 +18,13 @@
   font-weight: bold;
   color: white;
 }
+.submit:hover{
+  background-color: transparent;
+  border-radius: 20px;
+  border:2px solid blueviolet;
+  color: white;
+  height:43px
+}
 .icon {
   padding: 10px;
   background: white;

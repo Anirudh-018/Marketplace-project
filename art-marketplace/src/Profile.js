@@ -3,6 +3,8 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import classes from "./css/profile.module.css";
 import art from "./images/home-art.jpeg";
+import art1 from "./images/art1.jpeg";
+import art7 from "./images/art7.jpg";
 import { Link } from "react-router-dom";
 function Profile() {
   return (
@@ -10,9 +12,9 @@ function Profile() {
       <Nav />
       <div className={classes.container}>
         <div className={classes.overlay}>
-          <img src={art} alt="profile" className={classes.back}></img>
+          <img src={art7} alt="profile" className={classes.back}></img>
         </div>
-        <img src={art} alt="image1" className={classes.small}></img>
+        <img src={art1} alt="image1" className={classes.small}></img>
       </div>
       <div className={classes.content}>
         <div className={classes.left}>

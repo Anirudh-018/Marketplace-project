@@ -12,7 +12,9 @@ function Nav() {
         <Link to="/art">
           <div className="item">Marketpace</div>
         </Link>
-        <div className="item">Rankings</div>
+        <Link to="/profile">
+          <div className="item">Profile</div>
+        </Link>
         <Link to="/login">
           <div className="signup">
             <button>
