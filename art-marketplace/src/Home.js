@@ -2,6 +2,13 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import classes from "./css/home.module.css";
 import art from "./images/home-art.jpeg";
+import art1 from './images/art1.jpeg';
+import art2 from './images/art2.jpeg';
+import art3 from './images/art3.jpeg';
+import art4 from './images/art4.jpeg';
+import art5 from './images/art5.jpeg';
+import art6 from './images/art6.jpg';
+import art7 from './images/art7.jpg';
 function Home() {
   return (
     <div className={classes.main}>
@@ -55,31 +62,31 @@ function Home() {
       <div className={classes.popular}>
         {/* change the card images and the desc using the hooks and the response from the api */}
         <div className={classes.card1}>
-          <img src={art} className={classes.largeImage} alt="im1"></img>
+          <img src={art1} className={classes.largeImage} alt="im1"></img>
           <div className={classes.sub}>
-            <img src={art} className={classes.subImage} alt="im1"></img>
-            <img src={art} className={classes.subImage} alt="im1"></img>
-            <img src={art} className={classes.subImage} alt="im1"></img>
+            <img src={art2} className={classes.subImage} alt="im1"></img>
+            <img src={art3} className={classes.subImage} alt="im1"></img>
+            <img src={art4} className={classes.subImage} alt="im1"></img>
           </div>
           <h3>DSGN IMAGES</h3>
           <h4>mister fox</h4>
         </div>
         <div className={classes.card1}>
-          <img src={art} className={classes.largeImage} alt="im1"></img>
+          <img src={art5} className={classes.largeImage} alt="im1"></img>
           <div className={classes.sub}>
-            <img src={art} className={classes.subImage} alt="im1"></img>
-            <img src={art} className={classes.subImage} alt="im1"></img>
-            <img src={art} className={classes.subImage} alt="im1"></img>
+            <img src={art6} className={classes.subImage} alt="im1"></img>
+            <img src={art7} className={classes.subImage} alt="im1"></img>
+            <img src={art1} className={classes.subImage} alt="im1"></img>
           </div>
           <h3>DSGN IMAGES</h3>
           <h4>mister fox</h4>
         </div>
         <div className={classes.card1}>
-          <img src={art} className={classes.largeImage} alt="im1"></img>
+          <img src={art2} className={classes.largeImage} alt="im1"></img>
           <div className={classes.sub}>
-            <img src={art} className={classes.subImage} alt="im1"></img>
-            <img src={art} className={classes.subImage} alt="im1"></img>
-            <img src={art} className={classes.subImage} alt="im1"></img>
+            <img src={art3} className={classes.subImage} alt="im1"></img>
+            <img src={art4} className={classes.subImage} alt="im1"></img>
+            <img src={art5} className={classes.subImage} alt="im1"></img>
           </div>
           <h3>DSGN IMAGES</h3>
           <h4>mister fox</h4>
@@ -91,7 +98,7 @@ function Home() {
       </h3>
       <div className={classes.latest}>
         <div className={classes.card}>
-          <img src={art} alt="Avatar" />
+          <img src={art6} alt="Avatar" className={classes.cimg} />
           <div className={classes.container}>
             <h4>
               <b style={{ fontSize: "30px" }}>John Doe</b>
@@ -100,7 +107,7 @@ function Home() {
           </div>
         </div>
         <div className={classes.card}>
-          <img src={art} alt="Avatar" />
+          <img src={art7} alt="Avatar" className={classes.cimg}/>
           <div className={classes.container}>
             <h4>
               <b style={{ fontSize: "30px" }}>John Doe</b>
@@ -109,7 +116,7 @@ function Home() {
           </div>
         </div>
         <div className={classes.card}>
-          <img src={art} alt="Avatar" />
+          <img src={art1} alt="Avatar" className={classes.cimg}/>
           <div className={classes.container}>
             <h4>
               <b style={{ fontSize: "30px" }}>John Doe</b>

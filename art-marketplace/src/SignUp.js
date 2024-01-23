@@ -92,7 +92,6 @@ function SignUp() {
                 }}
               />
             </div>
-
             <div className={`input-container ${!isPwd ? "invalid" : ""}`}>
               <icons.BsLock className="icon" />
               <input

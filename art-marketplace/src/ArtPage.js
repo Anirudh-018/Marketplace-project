@@ -1,4 +1,7 @@
 import art from "./images/home-art.jpeg";
+import art1 from "./images/art1.jpeg";
+import art2 from "./images/art2.jpeg";
+import art7 from "./images/art7.jpg";
 import classes from "./css/artPage.module.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
@@ -8,7 +11,7 @@ function ArtPage() {
   return (
     <div>
       <Nav />
-      <img src={art} className={classes.art} alt="im"></img>
+      <img src={art7} className={classes.art} alt="im"></img>
       <div className={classes.content}>
         <div className={classes.text}>
           <h1>The Orbitans</h1>
@@ -76,7 +79,7 @@ function ArtPage() {
         </div>
         <div className={classes.otherContent}>
           <div className={classes.card}>
-            <img src={art} alt="Avatar" />
+            <img src={art1} alt="Avatar" />
             <div className={classes.container}>
               <h4>
                 <b style={{ fontSize: "30px" }}>John Doe</b>
@@ -85,34 +88,7 @@ function ArtPage() {
             </div>
           </div>
           <div className={classes.card}>
-            <img src={art} alt="Avatar" />
-            <div className={classes.container}>
-              <h4>
-                <b style={{ fontSize: "30px" }}>John Doe</b>
-              </h4>
-              <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-            </div>
-          </div>
-          <div className={classes.card}>
-            <img src={art} alt="Avatar" />
-            <div className={classes.container}>
-              <h4>
-                <b style={{ fontSize: "30px" }}>John Doe</b>
-              </h4>
-              <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-            </div>
-          </div>
-          <div className={classes.card}>
-            <img src={art} alt="Avatar" />
-            <div className={classes.container}>
-              <h4>
-                <b style={{ fontSize: "30px" }}>John Doe</b>
-              </h4>
-              <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-            </div>
-          </div>
-          <div className={classes.card}>
-            <img src={art} alt="Avatar" />
+            <img src={art2} alt="Avatar" />
             <div className={classes.container}>
               <h4>
                 <b style={{ fontSize: "30px" }}>John Doe</b>
