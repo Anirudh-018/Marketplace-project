@@ -9,14 +9,14 @@ const createTokens = (user) => {
 };
 const validateToken=async (req,res,next)=>{
     const token=req.cookies["JWT"];
-    if(!token) 
+    if(!token) {
         return res.status(401).send("un authorized")
+    }
     try{
         const validToken=verify(token,process.env.JWTsecret);
-        console.log(validToken);
         if(validToken){
             req.authenticated=true;
-            console.log("next");
+            req.userId=validToken.id;
             return next();
         }
     }catch(e){

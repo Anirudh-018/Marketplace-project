@@ -53,7 +53,14 @@ const Authcontroller = {
     }
   },
   async profile(req, res) {
-    res.send("profile");
+    try{
+        const user=await UserModel.findById(req.userId);
+        console.log(user);
+        res.status(200).send(user);
+    }
+    catch(e){
+        res.status(500).send("Internal serval error");
+    }
   },
 };
 module.exports = Authcontroller;
