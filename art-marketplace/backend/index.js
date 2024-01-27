@@ -4,7 +4,7 @@ const app = express();
 const cors = require("cors");
 const connection = require("./dbConn");
 const cookieParser=require('cookie-parser');
-const {auth_route}=require("./routes")
+const {auth_route,art_route}=require("./routes")
 connection();
 
 app.use(express.json());
@@ -69,6 +69,7 @@ const port = process.env.PORT || 5000; // Fix: use 'PORT' instead of 'port'
 // });
 
 app.use('/auth',auth_route);
+app.use('/art',art_route)
 app.listen(port, () => {
   console.log(`Listening at port ${port}`);
 });

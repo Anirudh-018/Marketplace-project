@@ -1,0 +1,12 @@
+const express = require("express");
+const router = express.Router();
+const JWT = require("../strategies/JWT");
+const ArtController = require("../controllers/ArtController");
+router.post("/add",JWT.validateToken,ArtController.addArt);
+router.get("/fetchAll",JWT.validateToken,ArtController.fetchAllArt);
+router.get("/fetchAllByArtist",JWT.validateToken,ArtController.fetchAllByArtist);
+router.get("/fetchAllByOwner",JWT.validateToken,ArtController.fetchAllByOwner);
+router.get("/fetchOne/:id",JWT.validateToken,ArtController.fetchOneArt);
+router.delete("/deleteArt/:id",JWT.validateToken,ArtController.delete);
+router.patch("/updateArt/:id",JWT.validateToken,ArtController.updateArt);
+module.exports = router;

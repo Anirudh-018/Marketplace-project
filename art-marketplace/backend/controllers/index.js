@@ -1,4 +1,6 @@
 const AuthController=require('./AuthController');
+const ArtController=require('./ArtController');
 module.exports={
-    AuthController
+    AuthController,
+    ArtController
 }
