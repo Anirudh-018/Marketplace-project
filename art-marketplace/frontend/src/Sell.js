@@ -13,7 +13,7 @@ function Sell() {
       <Nav />
       <div className={classes.upload}>
         <h2>Add Image:</h2>
-        <img src={file} className={classes.image}/>
+        <img src={file} className={file?"classes.image":"classes.hidden"}/>
         <div className="input-container">
               <icons.BsPerson className="icon" />
               <input
