@@ -25,6 +25,7 @@
   border-radius: 15px;
   width: 500px;
   height: 550px;
+  margin-bottom: 16px;
 }
 .card img {
   border-radius: 15px 15px 0px 0px;
@@ -42,12 +43,10 @@ h1 {
   padding: 2px 16px;
 }
 .content {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  gap: 10%;
-  margin-bottom: 10%;
-  margin-left: 16px;
-  margin-right: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
 }
 
 .iconMarket {
