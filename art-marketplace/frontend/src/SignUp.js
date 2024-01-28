@@ -4,7 +4,8 @@ import * as icons from "react-icons/bs";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setMail] = useState("");
@@ -14,7 +15,13 @@ function SignUp() {
   const [isPwd, setValidPwd] = useState(true);
   const [iscPwd, setValidcPwd] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
+  const [data, setData] = useState({
+    "name":"",
+    "email":"",
+    "password":"",
+    "confirm":""
+  });
+  // const navigate = useNavigate();
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setValidEmail(emailRegex.test(value));
@@ -43,12 +50,12 @@ function SignUp() {
       setErrorMessage("Please check the fields for errors.");
       return;
     }
-
+    console.log(data.name);
     // Continue with signup logic if validation passes
     alert(`Hi ${name}! Signup successful! Redirecting to dashboard...`);
-    setTimeout(() => {
-      navigate("/");
-    }, 1000);
+    axios.post('http://localhost:5000/auth/signup',data)
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err));
   };
   return (
     <div>
@@ -73,7 +80,8 @@ function SignUp() {
                 name="name"
                 value={name}
                 onChange={(e) => {
-                  setName(e.target.value); // Example validation: Name is not empty
+                  setName(e.target.value);
+                  setData({ ...data, [e.target.name]: e.target.value }); // Example validation: Name is not empty
                 }}
               />
             </div>
@@ -89,6 +97,7 @@ function SignUp() {
                 onChange={(e) => {
                   setMail(e.target.value);
                   validateEmail(e.target.value);
+                  setData({ ...data, [e.target.name]: e.target.value });
                 }}
               />
             </div>
@@ -103,29 +112,28 @@ function SignUp() {
                 onChange={(e) => {
                   setPwd(e.target.value);
                   validatePassword(e.target.value);
+                  setData({ ...data, [e.target.name]: e.target.value });
                 }}
               />
             </div>
-
             <div className={`input-container ${!iscPwd ? "invalid" : ""}`}>
               <icons.BsLock className="icon" />
               <input
-                className='input-field'
+                className="input-field"
                 type="password"
                 placeholder="Confirm Password"
-                name="confirm-pass"
+                name="confirm"
                 value={cPwd}
                 onChange={(e) => {
                   setcPwd(e.target.value);
                   validateConfirmPassword(e.target.value);
+                  setData({ ...data, [e.target.name]: e.target.value });
                 }}
               />
             </div>
-
             <button type="button" className="submit" onClick={handleSignup}>
               Create Account
             </button>
-
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </form>
         </div>

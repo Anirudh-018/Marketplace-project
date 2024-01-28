@@ -2,17 +2,17 @@ const UserModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const JWT = require("../strategies/JWT");
 const Authcontroller = {
-  async signup(req, res,next) {
-    const { username, email, password, confirmPassword } = req.body;
-    console.log(req.body);
-    if (password == confirmPassword) {
+  async signup(req, res) {
+    const data = req.body;
+    console.log(data);
+    if (data.password === data.confirm) {
       try {
         const user = await UserModel.create({
-          userName: username,
-          email: email,
-          password: await bcrypt.hash(password, 10),
+          userName: data.name,
+          email: data.email,
+          password: await bcrypt.hash(data.password, 10),
         });
-
+        console.log(user);
         if (user) {
           console.log(user);
           res.status(201).send("User created successfully"); // Fix: use 'status' instead of 'sendStatus'
@@ -24,7 +24,7 @@ const Authcontroller = {
         res.status(500).send("Internal Server Error");
       }
     } else {
-      console.log(confirmPassword);
+      // console.log(confirmPassword);
       res.status(400).send("Passwords do not match");
     }
   },
