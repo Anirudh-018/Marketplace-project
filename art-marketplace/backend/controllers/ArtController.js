@@ -1,6 +1,4 @@
 const artModel = require("../models/art");
-const fs = require("fs");
-const path = require('path');
 
 const ArtController = {
   async addArt(req, res) {
