@@ -1,26 +1,40 @@
 const artModel = require("../models/art");
-const ArtModel = require("../models/art");
+const fs = require("fs");
+const path = require('path');
+
 const ArtController = {
   async addArt(req, res) {
-    const data = req.body;
-    console.log(req.body);
     try {
-      if (data) {
-        const art = await ArtModel.create({
+      const data = req.body;
+      const file = req.file;
+      console.log(file);
+      if (!file) {
+        return res.status(400).send("No file uploaded");
+      }
+      const imageUrl = `../../uploads/${req.userId+file.originalname}`;
+
+      const existingArt = await artModel.findOne({ name: data.name });
+
+      if (!existingArt) {
+        const art = await artModel.create({
           name: data.name,
           artistId: data.artistId,
-          imageUrl: data.imageUrl,
+          imageUrl: imageUrl, 
           description: data.description,
           price: data.price,
           ownerId: data.ownerId,
         });
+
         if (art) {
-          res.status(201).send("art added to marketplace");
+          res.status(201).send("Art added to the marketplace");
         } else {
-          res.status(406).send("cant add art provide full details");
+          res.status(406).send("Couldn't add art. Provide full details");
         }
+      } else {
+        res.status(403).send("Art already exists");
       }
-    } catch (e) {
+    } catch (error) {
+      console.error("Error adding art:", error);
       res.status(500).send("Internal server error");
     }
   },
@@ -63,7 +77,8 @@ const ArtController = {
     }
   },
   async fetchOneArt(req, res) {
-    const id = req.param.id;
+    const id = req.params.id;
+    console.log(id);
     try {
       const art = await artModel.findById(id);
       if (art) {
@@ -76,7 +91,7 @@ const ArtController = {
     }
   },
   async delete(req, res) {
-    const id = req.param.id;
+    const id = req.params.id;
     if (id.length < 24) {
       res.status(400).send("wrong id format");
     }

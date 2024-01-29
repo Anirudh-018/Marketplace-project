@@ -7,6 +7,7 @@ import Art from "./Art";
 import ArtPage from "./ArtPage";
 import Profile from "./Profile";
 import Sell from "./Sell";
+import ChartComponent from "./TestChart";
 function App() {
   return (
     <div>
@@ -24,6 +25,8 @@ function App() {
         <Route path="/profile" element={<Profile/>}>
         </Route>
         <Route path="/sell" element={<Sell/>}>
+        </Route>
+        <Route path="/plot" element={<ChartComponent/>}>
         </Route>
       </Routes>
     </div>
