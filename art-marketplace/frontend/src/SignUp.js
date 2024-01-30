@@ -1,11 +1,10 @@
-import "./css/signup.css";
-import monaLisa from "./images/mona-lisa.jpeg";
+import classes from './css/signup.module.css'
 import * as icons from "react-icons/bs";
-import Nav from "./Nav";
-import Footer from "./Footer";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import video from './images/back.mp4'
+
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setMail] = useState("");
@@ -74,22 +73,25 @@ function SignUp() {
   };
   return (
     <div>
-      <Nav />
-      <div className="container">
-        <div className="image">
-          <img src={monaLisa} alt="monalisa" />
+      <div className={classes.container}>
+        <div className={classes.image}>
+        <div className={classes.videoContainer}>
+            <video autoPlay muted loop className={classes.video}>
+              <source src={video} type="video/mp4" />
+            </video>
+          </div>
         </div>
-        <div className="create">
+        <div className={classes.create}>
           <h1>Create Account</h1>
           <h2>
             Welcome! Enter Your Details And Start <br />
             Creating, Collecting And Selling Art Works
           </h2>
           <form>
-            <div className="input-container">
-              <icons.BsPerson className="icon" />
+            <div className={classes.inputContainer}>
+              <icons.BsPerson className={classes.icon} />
               <input
-                className={`input-field`}
+                className={classes.inputField}
                 type="text"
                 placeholder="Username"
                 name="name"
@@ -101,11 +103,11 @@ function SignUp() {
               />
             </div>
 
-            <div className="input-container">
-              <icons.BsEnvelope className="icon" />
+            <div className={classes.inputContainer}>
+              <icons.BsEnvelope className={classes.icon} />
               <input
                 // className={`input-field ${!isEmail ? "invalid" : ""}`}
-                className="input-field"
+                className={classes.inputField}
                 type="text"
                 placeholder="Email"
                 name="email"
@@ -118,12 +120,12 @@ function SignUp() {
               />
             </div>
             {!isEmail && (
-              <span className="error-message">Please enter a valid email</span>
+              <span className={classes.errorMessage}>Please enter a valid email</span>
             )}
-            <div className="input-container">
-              <icons.BsLock className="icon" />
+            <div className={classes.inputContainer}>
+              <icons.BsLock className={classes.icon} />
               <input
-                className={`input-field ${!isPwd ? "invalid" : ""}`}
+                className={classes.inputField}
                 type="password"
                 placeholder="Password"
                 name="password"
@@ -136,14 +138,14 @@ function SignUp() {
               />
             </div>
             {!isPwd && (
-              <span className="error-message">
+              <span className={classes.errorMessage}>
                 Please enter a valid password
               </span>
             )}
-            <div className="input-container">
-              <icons.BsLock className="icon" />
+            <div className={classes.inputContainer}>
+              <icons.BsLock className={classes.icon} />
               <input
-                className="input-field"
+                className={classes.inputField}
                 type="password"
                 placeholder="Confirm Password"
                 name="confirm"
@@ -156,16 +158,15 @@ function SignUp() {
               />
             </div>
             {!iscPwd && (
-              <span className="error-message">Password dont match</span>
+              <span className={classes.errorMessage}>Password dont match</span>
             )}
             <button type="button" className="submit" onClick={handleSignup}>
               Create Account
             </button>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage && <p className={classes.errorMessage}>{errorMessage}</p>}
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
