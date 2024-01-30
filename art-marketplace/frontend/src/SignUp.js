@@ -5,7 +5,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setMail] = useState("");
@@ -16,12 +16,12 @@ function SignUp() {
   const [iscPwd, setValidcPwd] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const [data, setData] = useState({
-    "name":"",
-    "email":"",
-    "password":"",
-    "confirm":""
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
   });
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const validateEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setValidEmail(emailRegex.test(value));
@@ -36,8 +36,9 @@ function SignUp() {
   };
 
   const handleSignup = () => {
-    if (name === "" || email === "" || pwd === "" || cPwd === "") {
+    if (data.userName === "" || data.password === "") {
       setErrorMessage("Please fill in all required fields.");
+      return;
     } else {
       setErrorMessage(""); // Clear any previous error messages
     }
@@ -50,12 +51,26 @@ function SignUp() {
       setErrorMessage("Please check the fields for errors.");
       return;
     }
-    console.log(data.name);
     // Continue with signup logic if validation passes
-    alert(`Hi ${name}! Signup successful! Redirecting to dashboard...`);
-    axios.post('http://localhost:5000/auth/signup',data)
-    .then(res=>console.log(res))
-    .catch(err=>console.log(err));
+    axios
+      .post("http://localhost:5000/auth/signup", data)
+      .then((res) => {
+        if (res.status === 201) {
+          alert(`Hi ${name}! Signup successful! Redirecting to login...`);
+          navigate("/login");
+        } else {
+          alert("Unexpected response status: " + res.status);
+        }
+      })
+      .catch((err) => {
+        if (err.response && err.response.status === 403) {
+          alert(
+            "Duplicate entry. Please choose a different username or email."
+          );
+        } else {
+          console.log(err);
+        }
+      });
   };
   return (
     <div>
@@ -86,10 +101,11 @@ function SignUp() {
               />
             </div>
 
-            <div className={`input-container ${!isEmail ? "invalid" : ""}`}>
+            <div className="input-container">
               <icons.BsEnvelope className="icon" />
               <input
-                className={`input-field ${!isEmail ? "invalid" : ""}`}
+                // className={`input-field ${!isEmail ? "invalid" : ""}`}
+                className="input-field"
                 type="text"
                 placeholder="Email"
                 name="email"
@@ -101,7 +117,10 @@ function SignUp() {
                 }}
               />
             </div>
-            <div className={`input-container ${!isPwd ? "invalid" : ""}`}>
+            {!isEmail && (
+              <span className="error-message">Please enter a valid email</span>
+            )}
+            <div className="input-container">
               <icons.BsLock className="icon" />
               <input
                 className={`input-field ${!isPwd ? "invalid" : ""}`}
@@ -116,7 +135,12 @@ function SignUp() {
                 }}
               />
             </div>
-            <div className={`input-container ${!iscPwd ? "invalid" : ""}`}>
+            {!isPwd && (
+              <span className="error-message">
+                Please enter a valid password
+              </span>
+            )}
+            <div className="input-container">
               <icons.BsLock className="icon" />
               <input
                 className="input-field"
@@ -131,6 +155,9 @@ function SignUp() {
                 }}
               />
             </div>
+            {!iscPwd && (
+              <span className="error-message">Password dont match</span>
+            )}
             <button type="button" className="submit" onClick={handleSignup}>
               Create Account
             </button>

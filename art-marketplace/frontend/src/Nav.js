@@ -13,14 +13,11 @@ function Nav() {
           <div className="item">Marketpace</div>
         </Link>
         <Link to="/profile">
-          <div className="item">Profile</div>
-        </Link>
-        <Link to="/login">
           <div className="signup">
             <button>
               <CiShop className="iconSignup" />
               <b>
-                <Link to="/login">Login</Link>
+                <Link to="/profile">profile</Link>
               </b>
             </button>
           </div>

@@ -105,12 +105,12 @@ h4{
   initial-value: 0;
   inherits: false;
 }
-span {
+.span {
   animation: counter 5s  forwards alternate ease-in-out;
   counter-reset: num var(--num);
   font: 800 40px system-ui;
 }
-span::after {
+.span::after {
   content: counter(num);
 }
 @keyframes counter {

@@ -8,13 +8,12 @@ import ArtPage from "./ArtPage";
 import Profile from "./Profile";
 import Sell from "./Sell";
 import ChartComponent from "./TestChart";
+import LoginBack from "./LoginBack";
 function App() {
   return (
     <div>
       <Routes>
         <Route path='/signup' element={<SignUp/>}>
-        </Route>
-        <Route path='/login' element={<Login/>}>
         </Route>
         <Route path='/' element={<Home/>}>
         </Route>
@@ -27,6 +26,8 @@ function App() {
         <Route path="/sell" element={<Sell/>}>
         </Route>
         <Route path="/plot" element={<ChartComponent/>}>
+        </Route>
+        <Route path="/login" element={<LoginBack/>}>
         </Route>
       </Routes>
     </div>

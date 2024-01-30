@@ -58,3 +58,8 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.error-message{
+  color:red;
+  /* margin-top: 8px;
+  margin-bottom: 8px; */
+}

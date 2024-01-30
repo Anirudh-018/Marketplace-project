@@ -27,17 +27,17 @@ function Home() {
           </h3>
           <div className={classes.initContent}>
             <h3>
-              <span></span>k+ 
+              <span className={classes.span}></span>k+ 
               <br />
               sales
             </h3>
             <h3>
-              <span></span>k+ 
+              <span className={classes.span}></span>k+ 
               <br />
               users
             </h3>
             <h3>
-              <span></span>k+ 
+              <span className={classes.span}></span>k+ 
               <br />
               artist
             </h3>
