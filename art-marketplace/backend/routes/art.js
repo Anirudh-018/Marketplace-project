@@ -5,17 +5,17 @@ const ArtController = require("../controllers/ArtController");
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "../uploads");
+    cb(null, "../frontend/src/uploads");
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    cb(null, req.userId+file.originalname);
   },
 });
 const upload = multer({ storage: storage });
 router.post(
   "/add",
-  upload.single("file"),
   JWT.validateToken,
+  upload.single("file"),
   ArtController.addArt
 );
 router.get("/fetchAll", JWT.validateToken, ArtController.fetchAllArt);

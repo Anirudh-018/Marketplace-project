@@ -2,7 +2,6 @@ import art from "./images/home-art.jpeg";
 import art1 from "./images/art1.jpeg";
 import art2 from "./images/art2.jpeg";
 import art7 from "./images/art7.jpg";
-import art8 from "../../uploads/65b5f3ae84d076947f5d1baajwt.png"
 import classes from "./css/artPage.module.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
