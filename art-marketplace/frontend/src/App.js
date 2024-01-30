@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./css/App.css";
 import SignUp from "./SignUp";
-import Login from "./Login";
 import Home from "./Home";
 import Art from "./Art";
 import ArtPage from "./ArtPage";
