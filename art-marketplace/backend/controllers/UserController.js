@@ -14,25 +14,26 @@ const UserController = {
     }
   },
   async updateUser(req, res) {
-    if(req.body.password){
-        req.body.password=bcrypt(req.body.password,10);
+    if (req.body.password) {
+      req.body.password = bcrypt(req.body.password, 10);
     }
     try {
       const user = await UserModel.findById(req.userId);
       if (user) {
-        const updatedUser=await UserModel.findOneAndUpdate({ _id: req.userId }, req.body);
-        if(updatedUser){
-            res.status(200).send(updatedUser);
+        const updatedUser = await UserModel.findOneAndUpdate(
+          { _id: req.userId },
+          req.body
+        );
+        if (updatedUser) {
+          res.status(200).send(updatedUser);
+        } else {
+          res.status(400).send("couldn't delete");
         }
-        else{
-            res.status(400).send("couldn't delete");
-        }
-      }
-      else{
+      } else {
         res.status(401).send("not found");
       }
     } catch (e) {
-        console.log(e);
+      console.log(e);
       res.status(500).send("Internal server error");
     }
   },

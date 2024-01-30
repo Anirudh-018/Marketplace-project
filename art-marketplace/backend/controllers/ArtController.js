@@ -9,7 +9,7 @@ const ArtController = {
       if (!file) {
         return res.status(400).send("No file uploaded");
       }
-      const imageUrl = `../../uploads/${req.userId+file.originalname}`;
+      const imageUrl = `../../uploads/${req.userId + file.originalname}`;
 
       const existingArt = await artModel.findOne({ name: data.name });
 
@@ -17,7 +17,7 @@ const ArtController = {
         const art = await artModel.create({
           name: data.name,
           artistId: data.artistId,
-          imageUrl: imageUrl, 
+          imageUrl: imageUrl,
           description: data.description,
           price: data.price,
           ownerId: data.ownerId,
@@ -49,7 +49,7 @@ const ArtController = {
     }
   },
   async fetchAllByArtist(req, res) {
-    const artistId = req.query.artistId;
+    const artistId = req.params.artistId;
     try {
       const arts = await artModel.find({ artistId: artistId });
       if (arts) {
@@ -62,7 +62,7 @@ const ArtController = {
     }
   },
   async fetchAllByOwner(req, res) {
-    const ownerId = req.query.ownerId;
+    const ownerId = req.params.ownerId;
     try {
       const arts = await artModel.find({ ownerId: ownerId });
       if (arts) {

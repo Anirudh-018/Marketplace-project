@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const connection = require("./dbConn");
-const cookieParser=require('cookie-parser');
-const {auth_route,art_route,user_route}=require("./routes")
+const cookieParser = require("cookie-parser");
+const { auth_route, art_route, user_route } = require("./routes");
 connection();
 
 app.use(express.json());
@@ -68,9 +68,9 @@ const port = process.env.PORT || 5000; // Fix: use 'PORT' instead of 'port'
 //     res.send("profile");
 // });
 
-app.use('/auth',auth_route);
-app.use('/art',art_route);
-app.use('/user',user_route)
+app.use("/auth", auth_route);
+app.use("/art", art_route);
+app.use("/user", user_route);
 app.listen(port, () => {
   console.log(`Listening at port ${port}`);
 });

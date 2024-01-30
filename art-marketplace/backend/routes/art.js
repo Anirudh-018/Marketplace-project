@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
     cb(null, "../uploads");
   },
   filename: function (req, file, cb) {
-    cb(null,file.originalname);
+    cb(null, file.originalname);
   },
 });
 const upload = multer({ storage: storage });
@@ -20,12 +20,12 @@ router.post(
 );
 router.get("/fetchAll", JWT.validateToken, ArtController.fetchAllArt);
 router.get(
-  "/fetchAllByArtist",
+  "/fetchAllByArtist/:id",
   JWT.validateToken,
   ArtController.fetchAllByArtist
 );
 router.get(
-  "/fetchAllByOwner",
+  "/fetchAllByOwner/:id",
   JWT.validateToken,
   ArtController.fetchAllByOwner
 );
