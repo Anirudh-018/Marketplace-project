@@ -1,5 +1,5 @@
 const artModel = require("../models/art");
-
+const UserModel=require("../models/user")
 const ArtController = {
   async addArt(req, res) {
     try {
@@ -9,18 +9,20 @@ const ArtController = {
       if (!file) {
         return res.status(400).send("No file uploaded");
       }
-      const imageUrl = `../src/uploads/${req.userId + file.originalname}`;
+      const imageUrl = req.userId + file.originalname;
 
       const existingArt = await artModel.findOne({ name: data.name });
 
       if (!existingArt) {
+        const artist=await UserModel.findById(data.artistId);
+        const owner=await UserModel.findById(data.ownerId);
         const art = await artModel.create({
           name: data.name,
-          artistId: data.artistId,
+          artist: artist.userName,
           imageUrl: imageUrl,
           description: data.description,
           price: data.price,
-          ownerId: data.ownerId,
+          owner: owner.userName,
         });
 
         if (art) {
@@ -40,7 +42,7 @@ const ArtController = {
     try {
       const arts = await artModel.find();
       if (arts) {
-        res.status(302).send(arts);
+        res.status(200).send(arts);
       } else {
         res.status(401).send("not found");
       }
@@ -53,7 +55,7 @@ const ArtController = {
     try {
       const arts = await artModel.find({ artistId: artistId });
       if (arts) {
-        res.status(302).send(arts);
+        res.status(200).send(arts);
       } else {
         res.status(401).send("not found");
       }
@@ -66,7 +68,7 @@ const ArtController = {
     try {
       const arts = await artModel.find({ ownerId: ownerId });
       if (arts) {
-        res.status(302).send(arts);
+        res.status(200).send(arts);
       } else {
         res.status(401).send("not found");
       }
@@ -80,7 +82,7 @@ const ArtController = {
     try {
       const art = await artModel.findById(id);
       if (art) {
-        res.status(302).send(art);
+        res.status(200).send(art);
       } else {
         res.status(401).send("not found");
       }

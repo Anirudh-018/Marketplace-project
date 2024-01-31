@@ -8,7 +8,11 @@ const { auth_route, art_route, user_route } = require("./routes");
 connection();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin:["http://localhost:3000"],
+  credentials:true
+
+}));
 app.use(cookieParser());
 const port = process.env.PORT || 5000; // Fix: use 'PORT' instead of 'port'
 

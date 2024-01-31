@@ -38,11 +38,14 @@ const Authcontroller = {
       } else {
         const pass = await bcrypt.compare(password, user.password);
         if (pass) {
-          const accessToken = await JWT.createTokens(user);
+          const {accessToken,refreshToken} = await JWT.createTokens(user);
           res.cookie("JWT", accessToken, {
             maxAge: 60 * 60 * 1000,
           });
-          res.status(200).send("loggend in");
+          res.cookie("refresh",refreshToken,{
+            maxAge: 60 * 60 * 1000,
+          })
+          res.status(200).send({"accessToken":accessToken});
         } else {
           res.status(400).send("Incorrect password");
         }
