@@ -7,7 +7,12 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 function ArtPage() {
+  const { artData } = useParams();
+
+  // Log the artData to check if it's received
+  console.log("artData:", artData);
   return (
     <div>
       <Nav />

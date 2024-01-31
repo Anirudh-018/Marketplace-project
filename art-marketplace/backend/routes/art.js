@@ -18,7 +18,7 @@ router.post(
   upload.single("file"),
   ArtController.addArt
 );
-router.get("/fetchAll", JWT.validateToken, ArtController.fetchAllArt);
+router.get("/", JWT.validateToken, ArtController.fetchAllArt);
 router.get(
   "/fetchAllByArtist/:id",
   JWT.validateToken,
@@ -29,7 +29,7 @@ router.get(
   JWT.validateToken,
   ArtController.fetchAllByOwner
 );
-router.get("/fetchOne/:id", JWT.validateToken, ArtController.fetchOneArt);
-router.delete("/deleteArt/:id", JWT.validateToken, ArtController.delete);
-router.patch("/updateArt/:id", JWT.validateToken, ArtController.updateArt);
+router.get("/:id", JWT.validateToken, ArtController.fetchOneArt);
+router.delete("/:id", JWT.validateToken, ArtController.delete);
+router.patch("/:id", JWT.validateToken, ArtController.updateArt);
 module.exports = router;

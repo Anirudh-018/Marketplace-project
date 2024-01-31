@@ -11,16 +11,16 @@ import Cookies from "js-cookie";
 function Art() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+  console.log(Cookies.get("JWT"));
   useEffect(() => {
     axios
-      .get("http://localhost:5000/art/fetchAll", {
+      .get("http://localhost:5000/art/", {
         headers: {
           Authorization: `Bearer ${Cookies.get("JWT")}`,
         },
       })
       .then((res) => {
         setData(res.data);
-        console.log(data.imageUrl);
       })
       .catch((err) => console.log(err));
   });
@@ -37,7 +37,6 @@ function Art() {
           name="search"
           id="search"
           onChange={(e) => setSearch(e.target.value)}
-          // Add your input onChange handler here to capture search input
         />
         <button type="submit" className={classes.iconMarket}>
           <CiSearch></CiSearch>
@@ -56,7 +55,7 @@ function Art() {
             return (
               <div className={classes.card} key={index}>
                 <Link
-                  to={{ pathname: "/artPage", state: { data: art } }}
+                  to={`/artPage/${art._id}`}
                   style={{ color: "white" }}
                 >
                   <img src={artImage} alt={`Artwork by ${art.artist}`} />

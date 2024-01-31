@@ -18,7 +18,7 @@ function App() {
         </Route>
         <Route path="/art" element={<Art/>}>
         </Route>
-        <Route path="/artPage" element={<ArtPage/>}>
+        <Route path="/artPage/:artId" element={<ArtPage/>}>
         </Route>
         <Route path="/profile" element={<Profile/>}>
         </Route>
