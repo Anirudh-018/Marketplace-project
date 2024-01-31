@@ -43,7 +43,8 @@ function Art() {
         </button>
       </form>
       <div className={classes.content}>
-        {data
+        {
+        data
           .filter((item) => {
             return search.toLowerCase() === ""
               ? item

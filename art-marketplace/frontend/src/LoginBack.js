@@ -14,26 +14,22 @@ function LoginBack() {
     password: "",
   });
   axios.defaults.withCredentials=true;
-  const handleSignup = () => {
+  const handleLogin = () => {
     if (
       data.name === "" ||
-      data.email === "" ||
-      data.password === "" ||
-      data.confirm === ""
+      data.password === "" 
     ) {
       setErrorMessage("Please fill in all required fields.");
       return;
     } else {
       setErrorMessage(""); // Clear any previous error messages
     }
-    console.log(data);
     axios
       .post("http://localhost:5000/auth/login", data)
       .then((res) => {
         if (res.status === 200) {
           alert(`Login successful!`);
           localStorage.setItem("JWT",res.data.accessToken);
-          // console.log(res.data.accessToken);
           navigate("/home");
         } else {
           alert("Unexpected response status: " + res.status);
@@ -96,7 +92,7 @@ function LoginBack() {
             <button
               type="button"
               className={classes.submit}
-              onClick={handleSignup}
+              onClick={handleLogin}
             >
               login
             </button>

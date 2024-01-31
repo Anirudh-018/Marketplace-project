@@ -20,7 +20,7 @@ function App() {
         </Route>
         <Route path="/artPage/:artId" element={<ArtPage/>}>
         </Route>
-        <Route path="/profile" element={<Profile/>}>
+        <Route path="/profile/:id" element={<Profile/>}>
         </Route>
         <Route path="/sell" element={<Sell/>}>
         </Route>
