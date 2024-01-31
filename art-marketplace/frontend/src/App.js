@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/signup' element={<SignUp/>}>
         </Route>
-        <Route path='/' element={<Home/>}>
+        <Route path='/home' element={<Home/>}>
         </Route>
         <Route path="/art" element={<Art/>}>
         </Route>
@@ -26,7 +26,7 @@ function App() {
         </Route>
         <Route path="/plot" element={<ChartComponent/>}>
         </Route>
-        <Route path="/login" element={<LoginBack/>}>
+        <Route path="/" element={<LoginBack/>}>
         </Route>
       </Routes>
     </div>

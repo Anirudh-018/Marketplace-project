@@ -21,6 +21,7 @@
 }
 
 .create {
+  display:flex;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -32,7 +33,11 @@
   text-align: center;
   color:blueviolet
 }
-
+.create img{
+  height:fit-content;
+  width:65%;
+  padding :10px;
+}
 .inputContainer {
   display: flex;
   align-items: center;

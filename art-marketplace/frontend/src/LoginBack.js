@@ -3,8 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classes from "./css/login.module.css";
 import axios from "axios";
-import video from './images/back.mp4'
-
+import video from "./images/back.mp4";
 function LoginBack() {
   const [name, setName] = useState("");
   const [pwd, setPwd] = useState("");
@@ -14,7 +13,7 @@ function LoginBack() {
     userName: "",
     password: "",
   });
-
+  axios.defaults.withCredentials=true;
   const handleSignup = () => {
     if (
       data.name === "" ||
@@ -32,8 +31,10 @@ function LoginBack() {
       .post("http://localhost:5000/auth/login", data)
       .then((res) => {
         if (res.status === 200) {
-          alert(`Hi ${name}! login successful! Redirecting to home...`);
-          navigate("/");
+          alert(`Login successful!`);
+          localStorage.setItem("JWT",res.data.accessToken);
+          // console.log(res.data.accessToken);
+          navigate("/home");
         } else {
           alert("Unexpected response status: " + res.status);
         }
@@ -61,9 +62,9 @@ function LoginBack() {
           </div>
         </div>
         <div className={classes.create}>
-          <h1>Login into your account</h1>
-          <h2>Welcome! Enter Your Details to login</h2>
-          <form>
+          <form className={classes.form}>
+            <h1>Login in</h1>
+            <h2>Welcome! Enter Your Details to login</h2>
             <div className={classes.inputContainer}>
               <icons.BsEnvelope className={classes.icon} />
               <input

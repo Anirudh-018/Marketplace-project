@@ -6,17 +6,24 @@ import { CiSearch } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import Cookies from "js-cookie";
+
 function Art() {
   const [data, setData] = useState([]);
-  const[search,setSearch]=useState('');
-  console.log(search);
+  const [search, setSearch] = useState("");
   useEffect(() => {
     axios
-    //replace this with your fetch all api
-      .get("https://picsum.photos/v2/list?page=2&limit=10")
-      .then((res) => setData(res.data))
+      .get("http://localhost:5000/art/fetchAll", {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("JWT")}`,
+        },
+      })
+      .then((res) => {
+        setData(res.data);
+        console.log(data.imageUrl);
+      })
       .catch((err) => console.log(err));
-  }, []);
+  });
   return (
     <div className={classes.head}>
       <Nav />
@@ -29,7 +36,7 @@ function Art() {
           className={classes.searchbar}
           name="search"
           id="search"
-          onChange={(e)=>setSearch(e.target.value)}
+          onChange={(e) => setSearch(e.target.value)}
           // Add your input onChange handler here to capture search input
         />
         <button type="submit" className={classes.iconMarket}>
@@ -37,22 +44,33 @@ function Art() {
         </button>
       </form>
       <div className={classes.content}>
-        {data.filter((item)=>{
-          return search.toLowerCase()===""?item:item.author.toLowerCase().includes(search);
-        }).map((user, index) => (
-          <div className={classes.card} key={index}>
-            <Link to="/artPage" style={{ color: "white" }}>
-              <img src={user.download_url} alt={`Artwork by ${user.author}`} />
-              <div className={classes.container}>
-                <h4>
-                  <b style={{ fontSize: "30px" }}>{user.author}</b>
-                </h4>
-                <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-                <p>Price: 10$</p>
+        {data
+          .filter((item) => {
+            return search.toLowerCase() === ""
+              ? item
+              : item.artist.toLowerCase().includes(search);
+          })
+          .map((art, index) => {
+            const val = art.imageUrl;
+            const artImage = require(`../src/uploads/${val}`);
+            return (
+              <div className={classes.card} key={index}>
+                <Link
+                  to={{ pathname: "/artPage", state: { data: art } }}
+                  style={{ color: "white" }}
+                >
+                  <img src={artImage} alt={`Artwork by ${art.artist}`} />
+                  <div className={classes.container}>
+                    <h4>
+                      <b style={{ fontSize: "30px" }}>{art.artist}</b>
+                    </h4>
+                    <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
+                    <p>Price:{art.price}$</p>
+                  </div>
+                </Link>
               </div>
-            </Link>
-          </div>
-        ))}
+            );
+          })}
       </div>
       <Footer />
     </div>
