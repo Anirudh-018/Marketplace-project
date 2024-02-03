@@ -2,17 +2,35 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 import classes from "./css/home.module.css";
 import art from "./images/home-art.jpeg";
-import art1 from './images/art1.jpeg';
-import art2 from './images/art2.jpeg';
-import art3 from './images/art3.jpeg';
-import art4 from './images/art4.jpeg';
-import art5 from './images/art5.jpeg';
-import art6 from './images/art6.jpg';
-import art7 from './images/art7.jpg';
+import art1 from "./images/art1.jpeg";
+import art2 from "./images/art2.jpeg";
+import art3 from "./images/art3.jpeg";
+import art4 from "./images/art4.jpeg";
+import art5 from "./images/art5.jpeg";
+import art6 from "./images/art6.jpg";
+import art7 from "./images/art7.jpg";
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Cookies from "js-cookie";
 function Home() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkJWTCookie = () => {
+      const jwtCookie =Cookies.get("JWT")
+
+      if (!jwtCookie) {
+        // Redirect to a 404 page or any other page of your choice
+        navigate('/err')
+      }
+    };
+
+    checkJWTCookie();
+  }, [navigate]);
   return (
     <div className={classes.main}>
       <Nav />
+      {/* <div className={classes.lineb}></div> */}
       <div className={classes.init}>
         <div className={classes.left}>
           <h1>
@@ -27,17 +45,17 @@ function Home() {
           </h3>
           <div className={classes.initContent}>
             <h3>
-              <span className={classes.span}></span>k+ 
+              <span className={classes.span}></span>k+
               <br />
               sales
             </h3>
             <h3>
-              <span className={classes.span}></span>k+ 
+              <span className={classes.span}></span>k+
               <br />
               users
             </h3>
             <h3>
-              <span className={classes.span}></span>k+ 
+              <span className={classes.span}></span>k+
               <br />
               artist
             </h3>
@@ -60,7 +78,6 @@ function Home() {
         <b>Checkout our weekly updated trending collections</b>
       </h3>
       <div className={classes.popular}>
-        {/* change the card images and the desc using the hooks and the response from the api */}
         <div className={classes.card1}>
           <img src={art1} className={classes.largeImage} alt="im1"></img>
           <div className={classes.sub}>
@@ -107,7 +124,7 @@ function Home() {
           </div>
         </div>
         <div className={classes.card}>
-          <img src={art7} alt="Avatar" className={classes.cimg}/>
+          <img src={art7} alt="Avatar" className={classes.cimg} />
           <div className={classes.container}>
             <h4>
               <b style={{ fontSize: "30px" }}>John Doe</b>
@@ -116,7 +133,7 @@ function Home() {
           </div>
         </div>
         <div className={classes.card}>
-          <img src={art1} alt="Avatar" className={classes.cimg}/>
+          <img src={art1} alt="Avatar" className={classes.cimg} />
           <div className={classes.container}>
             <h4>
               <b style={{ fontSize: "30px" }}>John Doe</b>
@@ -132,18 +149,30 @@ function Home() {
       <div className={classes.steps}>
         <div className={classes.stepItem}>
           <h3>SignUp in the marketplace</h3>
-          <h4>skfnsfnsafnkasfnksafajf<br/>jkjabsfabfajsbfajf</h4>
+          <h4>
+            skfnsfnsafnkasfnksafajf
+            <br />
+            jkjabsfabfajsbfajf
+          </h4>
         </div>
         <div className={classes.stepItem}>
           <h3>SignUp in the marketplace</h3>
-          <h4>skfnsfnsafnkasfnksafajf<br/>jkjabsfabfajsbfajf</h4>
+          <h4>
+            skfnsfnsafnkasfnksafajf
+            <br />
+            jkjabsfabfajsbfajf
+          </h4>
         </div>
         <div className={classes.stepItem}>
           <h3>SignUp in the marketplace</h3>
-          <h4>skfnsfnsafnkasfnksafajf<br/>jkjabsfabfajsbfajf</h4>
+          <h4>
+            skfnsfnsafnkasfnksafajf
+            <br />
+            jkjabsfabfajsbfajf
+          </h4>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

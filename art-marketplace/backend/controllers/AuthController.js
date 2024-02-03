@@ -30,6 +30,7 @@ const Authcontroller = {
   },
 
   async login(req, res) {
+    console.log("hit");
     const { userName, password } = req.body;
     try {
       const user = await UserModel.findOne({ userName: userName });

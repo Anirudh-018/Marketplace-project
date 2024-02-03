@@ -47,8 +47,8 @@ function ArtPage() {
         </div>
         <div className={classes.price}>
           <h3>{`Current Buying price ${data.price}$`}</h3>
-          <form className={classes.btn}>
-            <button type="submit">BUY</button>
+          <form>
+            <button type="submit" className={classes.btn}>BUY</button>
           </form>
         </div>
       </div>

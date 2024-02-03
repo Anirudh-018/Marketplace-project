@@ -8,6 +8,7 @@ import Profile from "./Profile";
 import Sell from "./Sell";
 import ChartComponent from "./TestChart";
 import LoginBack from "./LoginBack";
+import Fof from './404';
 function App() {
   return (
     <div>
@@ -27,6 +28,8 @@ function App() {
         <Route path="/plot" element={<ChartComponent/>}>
         </Route>
         <Route path="/" element={<LoginBack/>}>
+        </Route>
+        <Route path="/err" element={<Fof/>}>
         </Route>
       </Routes>
     </div>

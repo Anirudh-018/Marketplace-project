@@ -17,7 +17,9 @@
 }
 .icon {
   color: black;
-  height: 100%;
+  height: 30px;
+  width:30px;
+  background-color: transparent;
 }
 .inputField {
   width: 100%;
@@ -28,12 +30,14 @@
   font-family:sans-serif;
   font-weight:500;
 }
-.input-container {
+.inputContainer {
   display: flex;
   width: 50%;
   margin-bottom: 15px;
   border-radius: 20px;
   border: 10px solid white;
+  background-color: white;
+  align-items: center;
 }
 .upload {
   display: flex;

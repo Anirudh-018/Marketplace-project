@@ -15,9 +15,15 @@
   border: 1px solid black;
   border-radius: 15px;
   margin-bottom: 16px;
-  height: 5vh;
-  margin:16px;
-  color:white;
+  height: 7vh;
+  margin: 16px;
+  color: white;
+  align-items: center;
+}
+.search:hover {
+  box-shadow: 2px 2px 19px 0px rgb(181, 171, 171); /* Adjusted alpha value to 0.5 */
+  transition: 0.3s;
+  border-radius: 15px;
 }
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -30,7 +36,7 @@
 .card img {
   border-radius: 15px 15px 0px 0px;
   width: 100%;
-  height:65%;
+  height: 65%;
 }
 h1 {
   font-size: 60px;
@@ -50,13 +56,16 @@ h1 {
 }
 
 .iconMarket {
-  color: wheat;
-  font-size: 20px;
+  color: white;
+  font-size: 30px;
   width: fit-content;
   display: flex;
   justify-content: center;
-  margin-top: 0.5%;
+  /* margin-top: 0.5%; */
 }
-h4{
-  margin-left:-1px;
+h4 {
+  margin-left: -1px;
+}
+.head {
+  background-color: black;
 }

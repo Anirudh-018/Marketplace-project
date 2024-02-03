@@ -19,8 +19,8 @@ function Sell() {
         <div className={classes.upload}>
           <h2>Add Image:</h2>
           <img src={file} className={file ? classes.image : classes.hidden} alt="dummy"/>
-          <div className="input-container">
-            <icons.BsPerson className="icon" />
+          <div className={classes.inputContainer}>
+            <icons.BsPerson className={classes.icon} />
             <input
               className={classes.inputField}
               type="file"
@@ -29,8 +29,8 @@ function Sell() {
             />
           </div>
           <h2>Art Name:</h2>
-          <div className="input-container">
-            <icons.BsPerson className="icon" />
+          <div className={classes.inputContainer}>
+            <icons.BsPerson className={classes.icon}/>
             <input
               className={classes.inputField}
               type="text"
@@ -39,8 +39,8 @@ function Sell() {
             />
           </div>
           <h2>Description:</h2>
-          <div className="input-container">
-            <icons.BsPerson className="icon" />
+          <div className={classes.inputContainer}>
+            <icons.BsPerson className={classes.icon} />
             <textarea
               className={classes.inputField}
               type="textarea"
@@ -49,8 +49,8 @@ function Sell() {
             />
           </div>
           <h2>Price:</h2>
-          <div className="input-container">
-            <icons.BsPerson className="icon" />
+          <div className={classes.inputContainer}>
+            <icons.BsPerson className={classes.icon} />
             <input
               className={classes.inputField}
               type="text"
@@ -59,8 +59,8 @@ function Sell() {
             />
           </div>
           <h2>Type:</h2>
-          <div className="input-container">
-            <icons.BsPerson className="icon" />
+          <div className={classes.inputContainer}>
+            <icons.BsPerson className={classes.icon} />
             <input
               className={classes.inputField}
               type="text"

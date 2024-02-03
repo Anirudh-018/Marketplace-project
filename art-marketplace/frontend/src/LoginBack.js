@@ -1,6 +1,6 @@
 import * as icons from "react-icons/bs";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classes from "./css/login.module.css";
 import axios from "axios";
 import video from "./images/back.mp4";
@@ -24,6 +24,7 @@ function LoginBack() {
     } else {
       setErrorMessage(""); // Clear any previous error messages
     }
+    console.log(data);
     axios
       .post("http://localhost:5000/auth/login", data)
       .then((res) => {
@@ -89,6 +90,7 @@ function LoginBack() {
                 }}
               />
             </div>
+            <div className={classes.text}><Link to='/signup'>Dont have an account?</Link></div>
             <button
               type="button"
               className={classes.submit}

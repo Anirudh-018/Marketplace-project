@@ -25,6 +25,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  width:800px;
+  justify-content: center;
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
   padding: 20px;
@@ -46,7 +48,7 @@
   border: 10px solid white;
 }
 .submit {
-  width: 50%;
+  width: 100%;
   border-radius: 20px;
   border: 10px solid rgb(149, 66, 226);
   background-color: rgb(149, 66, 226);
@@ -74,6 +76,7 @@
   padding: 10px;
   outline: none;
   border: 0px;
+  background-color: white;
 }
 .errorMessage {
   color: red;
@@ -84,4 +87,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensure the video covers the entire container */
+}
+.text{
+  color:blueviolet;
+  margin-bottom: 8px;
+}
+.form{
+  width: 100%;;
 }
