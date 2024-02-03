@@ -24,7 +24,6 @@ const ArtController = {
           price: data.price,
           owner: owner.userName,
         });
-
         if (art) {
           res.status(201).send("Art added to the marketplace");
         } else {

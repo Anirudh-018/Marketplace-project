@@ -40,7 +40,7 @@ function ArtPage() {
         setArtistImges(res.data);
       })
       .catch((err) => console.log(err));
-  }, [data.srtistId]);
+  }, [data.artistId]);
   
   return (
     <div className={classes.main}>

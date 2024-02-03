@@ -57,7 +57,7 @@ function Profile() {
           <Link className={classes.btn} to="/art">
             Buy
           </Link>
-          <Link className={classes.btni} to={`/sell${userId}`}>
+          <Link className={classes.btni} to={`/sell/${userId}`}>
             Sell
           </Link>
           <Link className={classes.btn}>EditProfile</Link>
