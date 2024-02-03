@@ -1,22 +1,20 @@
-import art from "./images/home-art.jpeg";
-import art1 from "./images/art1.jpeg";
-import art2 from "./images/art2.jpeg";
 import classes from "./css/artPage.module.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import { CiLocationArrow1 } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 function ArtPage() {
   const { artId } = useParams();
-  const[data,setData]=useState({});
-  const[image,setImage]=useState();
-  useEffect(()=>{
+  const [data, setData] = useState({});
+  const [artistImages, setArtistImges] = useState([]);
+  const [image, setImage] = useState();
+  useEffect(() => {
     axios
-    .get(`http://localhost:5000/art/${artId}`, {
+      .get(`http://localhost:5000/art/${artId}`, {
         headers: {
           Authorization: `Bearer ${Cookies.get("JWT")}`,
         },
@@ -29,9 +27,23 @@ function ArtPage() {
         }
       })
       .catch((err) => console.log(err));
-  },[artId]);
+  }, [artId]);
+  
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/art/fetchAllByArtist/${data.artistId}`, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("JWT")}`,
+        },
+      })
+      .then((res) => {
+        setArtistImges(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [data.srtistId]);
+  
   return (
-    <div>
+    <div className={classes.main}>
       <Nav />
       <img src={image} className={classes.art} alt="im"></img>
       <div className={classes.content}>
@@ -48,7 +60,9 @@ function ArtPage() {
         <div className={classes.price}>
           <h3>{`Current Buying price ${data.price}$`}</h3>
           <form>
-            <button type="submit" className={classes.btn}>BUY</button>
+            <button type="submit" className={classes.btn}>
+              BUY
+            </button>
           </form>
         </div>
       </div>
@@ -63,33 +77,30 @@ function ArtPage() {
           </button>
         </div>
         <div className={classes.otherContent}>
-          <div className={classes.card}>
-            <img src={art1} alt="Avatar" />
-            <div className={classes.container}>
-              <h4>
-                <b style={{ fontSize: "30px" }}>John Doe</b>
-              </h4>
-              <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-            </div>
-          </div>
-          <div className={classes.card}>
-            <img src={art2} alt="Avatar" />
-            <div className={classes.container}>
-              <h4>
-                <b style={{ fontSize: "30px" }}>John Doe</b>
-              </h4>
-              <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-            </div>
-          </div>
-          <div className={classes.card}>
-            <img src={art} alt="Avatar" />
-            <div className={classes.container}>
-              <h4>
-                <b style={{ fontSize: "30px" }}>John Doe</b>
-              </h4>
-              <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
-            </div>
-          </div>
+        {
+        artistImages
+          .map((art, index) => {
+            console.log(art);
+            const val = art.imageUrl;
+            const artImage = require(`../src/uploads/${val}`);
+            return (
+              <div className={classes.card} key={index}>
+                <Link
+                  to={`/artPage/${art._id}`}
+                  style={{ color: "white" }}
+                >
+                  <img src={artImage} alt={`Artwork by ${art.artist}`} />
+                  <div className={classes.container}>
+                    <h4>
+                      <b style={{ fontSize: "30px" }}>{art.artist}</b>
+                    </h4>
+                    <p style={{ fontSize: "20px" }}>Architect & Engineer</p>
+                    <p>Price:{art.price}$</p>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
       <Footer />

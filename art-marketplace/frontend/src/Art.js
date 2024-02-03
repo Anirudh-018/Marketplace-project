@@ -11,7 +11,6 @@ import Cookies from "js-cookie";
 function Art() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
-  console.log(Cookies.get("JWT"));
   useEffect(() => {
     axios
       .get("http://localhost:5000/art/", {

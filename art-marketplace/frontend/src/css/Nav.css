@@ -5,6 +5,7 @@
   padding: 10px;
   border-radius: 10px;
   border-bottom: 2px solid white;
+  /* align-items: center; */
 }
 .iconMarket {
   color: rgb(149, 66, 226);
@@ -33,6 +34,17 @@
   flex-direction: column;
   text-decoration: none;
   color: white;
+}
+.spanItem {
+  position: relative;
+  display: inline; /* Adjust display property based on your layout */
+  transition: color 0.5s ease; /* Add transition for color property */
+}
+
+.spanItem:hover {
+  width: 100%;
+  color: blueviolet; /* Change the color on hover */
+  transition: color 1s ease; /* Add a longer transition on hover */
 }
 .signup {
   background-color: rgb(149, 66, 226);

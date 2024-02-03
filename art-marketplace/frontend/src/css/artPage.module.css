@@ -1,6 +1,9 @@
 .art {
   height: 50vh;
 }
+.main {
+  background-color: black;
+}
 .content {
   display: flex;
   justify-content: space-between;
@@ -17,6 +20,8 @@
   justify-content: space-around;
   flex-direction: column;
   width: 18%;
+  box-shadow: 2px 2px 0px 1px rgb(181, 171, 171);
+  overflow: hidden;
 }
 .text {
   width: 85%;
@@ -31,6 +36,18 @@
   height: 30%;
   max-width: 100%;
   width: 100%;
+}
+.btn:hover {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 2px solid blueviolet;
+  color: white;
+  width: 100%;
+  margin-right: 10px;
+  max-height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .otherTitle {
   display: flex;
@@ -47,12 +64,24 @@
   font-size: large;
   margin-right: 54px;
 }
+.otherBtn:hover {
+  background-color: transparent;
+  border-radius: 15px;
+  border: 2px solid blueviolet;
+  color: white;
+  /* width: 100%; */
+  margin-right: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   transition: 0.3s;
   border-radius: 15px;
   width: 500px;
   height: 550px;
+  box-shadow: 8px 8px 8px 0px rgb(181, 171, 171);
 }
 .card img {
   border-radius: 15px 15px 0px 0px;
@@ -60,7 +89,7 @@
   height: 65%;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(247, 242, 242, 0.5);
+  box-shadow: 8px 16px 16px 0px blueviolet;
 }
 
 .container {

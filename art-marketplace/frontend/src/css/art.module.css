@@ -19,9 +19,10 @@
   margin: 16px;
   color: white;
   align-items: center;
+  box-shadow: 2px 2px 2px 2px rgb(181, 171, 171);
 }
 .search:hover {
-  box-shadow: 2px 2px 19px 0px rgb(181, 171, 171); /* Adjusted alpha value to 0.5 */
+  box-shadow: 2px 2px 19px 0px blueviolet; 
   transition: 0.3s;
   border-radius: 15px;
 }
@@ -31,7 +32,10 @@
   border-radius: 15px;
   width: 500px;
   height: 550px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  margin-top: 16px;
+  overflow: hidden;
+  box-shadow: 8px 8px 8px 0px rgb(181, 171, 171);
 }
 .card img {
   border-radius: 15px 15px 0px 0px;
@@ -42,7 +46,7 @@ h1 {
   font-size: 60px;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(247, 242, 242, 0.5);
+  box-shadow: 8px 16px 16px 0px blueviolet;
 }
 
 .container {
