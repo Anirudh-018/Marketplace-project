@@ -51,7 +51,7 @@ const ArtController = {
     }
   },
   async fetchAllByArtist(req, res) {
-    const artistId = req.params.artistId;
+    const artistId = req.params.id;
     try {
       const arts = await artModel.find({ artistId: artistId });
       if (arts) {
@@ -64,7 +64,7 @@ const ArtController = {
     }
   },
   async fetchAllByOwner(req, res) {
-    const ownerId = req.params.ownerId;
+    const ownerId = req.params.id;
     try {
       const arts = await artModel.find({ ownerId: ownerId });
       if (arts) {
@@ -78,7 +78,6 @@ const ArtController = {
   },
   async fetchOneArt(req, res) {
     const id = req.params.id;
-    console.log(id);
     try {
       const art = await artModel.findById(id);
       if (art) {

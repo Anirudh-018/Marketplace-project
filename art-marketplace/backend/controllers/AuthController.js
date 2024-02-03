@@ -39,14 +39,14 @@ const Authcontroller = {
       } else {
         const pass = await bcrypt.compare(password, user.password);
         if (pass) {
-          const {accessToken,refreshToken} = await JWT.createTokens(user);
+          const { accessToken, refreshToken } = await JWT.createTokens(user);
           res.cookie("JWT", accessToken, {
             maxAge: 60 * 60 * 1000,
           });
-          res.cookie("refresh",refreshToken,{
+          res.cookie("refresh", refreshToken, {
             maxAge: 60 * 60 * 1000,
-          })
-          res.status(200).send({"accessToken":accessToken});
+          });
+          res.status(200).send({ accessToken: accessToken });
         } else {
           res.status(400).send("Incorrect password");
         }
@@ -64,6 +64,13 @@ const Authcontroller = {
     } catch (e) {
       res.status(500).send("Internal serval error");
     }
+  },
+  async logout(req, res) {
+    try {
+      res.clearCookie("JWT");
+      console.log("logged out");
+      res.status(200).send("logged out");
+    } catch (e) {res.status(500).send("Internal server error")}
   },
 };
 module.exports = Authcontroller;
