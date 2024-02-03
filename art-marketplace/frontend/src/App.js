@@ -21,9 +21,9 @@ function App() {
         </Route>
         <Route path="/artPage/:artId" element={<ArtPage/>}>
         </Route>
-        <Route path="/profile/:id" element={<Profile/>}>
+        <Route path="/profile/:userId" element={<Profile/>}>
         </Route>
-        <Route path="/sell" element={<Sell/>}>
+        <Route path="/sell/:userId" element={<Sell/>}>
         </Route>
         <Route path="/plot" element={<ChartComponent/>}>
         </Route>

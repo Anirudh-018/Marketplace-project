@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const UserController = {
   async getUser(req, res) {
     try {
-      const user = await UserModel.findById(req.userId);
+      const user = await UserModel.findById(req.params.userId);
       if (user) {
-        res.status(302).send(user);
+        res.status(200).send(user);
       } else {
         res.status(401).send("user details not found");
       }
