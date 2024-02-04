@@ -46,7 +46,7 @@ const Authcontroller = {
           res.cookie("refresh", refreshToken, {
             maxAge: 60 * 60 * 1000,
           });
-          res.status(200).send({ accessToken: accessToken });
+          res.status(200).send({ userId: user._id });
         } else {
           res.status(400).send("Incorrect password");
         }

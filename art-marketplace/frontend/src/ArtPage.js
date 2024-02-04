@@ -70,7 +70,7 @@ function ArtPage() {
         <div className={classes.otherTitle}>
           <h1>More from this artist</h1>
           <button className={classes.otherBtn}>
-            <Link to={`/profile/${data.artistId}`} className={classes.link}>
+            <Link to={`/artist/${data.artistId}`} className={classes.link}>
               Go to artist page
               <CiLocationArrow1 />
             </Link>

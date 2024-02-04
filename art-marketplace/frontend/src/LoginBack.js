@@ -30,7 +30,8 @@ function LoginBack() {
       .then((res) => {
         if (res.status === 200) {
           alert(`Login successful!`);
-          localStorage.setItem("JWT",res.data.accessToken);
+          console.log(res.data.userId);
+          localStorage.setItem("userId",res.data.userId);
           navigate("/home");
         } else {
           alert("Unexpected response status: " + res.status);
