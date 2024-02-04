@@ -6,6 +6,8 @@ const artSchema = new mongoose.Schema({
   description: { type: String, require: true },
   price: { type: Number, require: true },
   owner: { type: String, require: true },
+  artistId: { type: String, require: true },
+  ownerId: { type: String, require: true },
 });
 const artModel = mongoose.model("art", artSchema);
 module.exports = artModel;

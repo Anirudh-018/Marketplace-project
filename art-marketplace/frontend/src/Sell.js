@@ -4,11 +4,16 @@ import classes from "./css/sell.module.css";
 import { useState } from "react";
 import * as icons from "react-icons/bs";
 import Footer from "./Footer";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Cookies from "js-cookie";
 function Sell() {
+  const userId = useParams();
   const [fileImg, setFileImg] = useState();
 
   function handleChange(e) {
     setFileImg(URL.createObjectURL(e.target.files[0]));
+    setFile(e.target.files[0]);
   }
   const [file, setFile] = useState("");
   const [artName, setArtName] = useState("");
@@ -18,16 +23,27 @@ function Sell() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const formData = {
-      image: file,
-      artName: artName,
-      description: description,
-      price: price,
-      type: type,
-    };
-    console.log(formData);
+    const formData1 = new FormData();
+    formData1.append("file", file);
+    formData1.append("name", artName);
+    formData1.append("description", description);
+    formData1.append("price", price);
+    formData1.append("ownerId", `${userId.userId}`);
+    formData1.append("artistId", `${userId.userId}`);
+    console.log(Cookies.get("JWT"));
+    axios
+      .post("http://localhost:5000/art/add", formData1, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("JWT")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-
   return (
     <div className={classes.sell}>
       <Nav />
@@ -47,8 +63,8 @@ function Sell() {
               name="image"
               onChange={(e) => {
                 handleChange(e);
-                console.log(e.target.files[0])
-                // setFile(e.target.files[0]);
+                // console.log(e.target.files[0]);
+                setFile(e.target.files[0]);
               }}
             />
           </div>

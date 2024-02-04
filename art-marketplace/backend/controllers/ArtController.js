@@ -1,5 +1,5 @@
 const artModel = require("../models/art");
-const UserModel=require("../models/user")
+const UserModel = require("../models/user");
 const ArtController = {
   async addArt(req, res) {
     try {
@@ -14,8 +14,8 @@ const ArtController = {
       const existingArt = await artModel.findOne({ name: data.name });
 
       if (!existingArt) {
-        const artist=await UserModel.findById(data.artistId);
-        const owner=await UserModel.findById(data.ownerId);
+        const artist = await UserModel.findById(data.artistId);
+        const owner = await UserModel.findById(data.ownerId);
         const art = await artModel.create({
           name: data.name,
           artist: artist.userName,
@@ -23,6 +23,8 @@ const ArtController = {
           description: data.description,
           price: data.price,
           owner: owner.userName,
+          artistId: data.artistId,
+          ownerId: data.artistId
         });
         if (art) {
           res.status(201).send("Art added to the marketplace");
