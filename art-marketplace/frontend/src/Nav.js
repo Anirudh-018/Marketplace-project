@@ -5,7 +5,6 @@ import axios from "axios";
 function Nav() {
   const navigate = useNavigate();
   function handleLogout() {
-    console.log(localStorage.userId);
     axios
       .post("http://localhost:5000/auth/logout")
       .then((res) => {
@@ -31,12 +30,18 @@ function Nav() {
           <div className="item">Marketpace</div>
           <span className="spanItem"></span>
         </Link>
+        <Link to={`/owned/${localStorage.getItem("userId")}`}>
+          <div className="item">Owned arts</div>
+          <span className="spanItem"></span>
+        </Link>
         <Link to="/profile">
           <div className="signup">
             <button>
               <CiShop className="iconSignup" />
               <b>
-                <Link to={`/profile/${localStorage.getItem('userId')}`}>profile</Link>
+                <Link to={`/profile/${localStorage.getItem("userId")}`}>
+                  profile
+                </Link>
               </b>
             </button>
           </div>

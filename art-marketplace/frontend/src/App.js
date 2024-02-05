@@ -10,6 +10,7 @@ import ChartComponent from "./TestChart";
 import LoginBack from "./LoginBack";
 import Fof from './404';
 import Artist from "./Artist";
+import OwnedArts from "./OwnedArts";
 function App() {
   return (
     <div>
@@ -23,6 +24,8 @@ function App() {
         <Route path="/artPage/:artId" element={<ArtPage/>}>
         </Route>
         <Route path="/profile/:userId" element={<Profile/>}>
+        </Route>
+        <Route path="/owned/:userId" element={<OwnedArts/>}>
         </Route>
         <Route path="/artist/:userId" element={<Artist/>}>
         </Route>

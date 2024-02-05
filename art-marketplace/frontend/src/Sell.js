@@ -7,7 +7,23 @@ import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 function Sell() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkJWTCookie = () => {
+      const jwtCookie = Cookies.get("JWT");
+
+      if (!jwtCookie) {
+        // Redirect to a 404 page or any other page of your choice
+        navigate("/err");
+      }
+    };
+
+    checkJWTCookie();
+  }, [navigate]);
   const userId = useParams();
   const [fileImg, setFileImg] = useState();
 
@@ -20,7 +36,6 @@ function Sell() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
-
   function handleSubmit(e) {
     e.preventDefault();
     const formData1 = new FormData();
@@ -38,7 +53,7 @@ function Sell() {
         },
       })
       .then((res) => {
-        console.log(res);
+        alert(`listed image for selling`);
       })
       .catch((err) => {
         console.log(err);

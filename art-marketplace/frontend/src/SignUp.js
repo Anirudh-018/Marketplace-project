@@ -1,9 +1,9 @@
-import classes from './css/signup.module.css'
+import classes from "./css/signup.module.css";
 import * as icons from "react-icons/bs";
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import video from './images/back.mp4'
+import video from "./images/back.mp4";
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -56,7 +56,7 @@ function SignUp() {
       .then((res) => {
         if (res.status === 201) {
           alert(`Hi ${name}! Signup successful! Redirecting to login...`);
-          navigate("/login");
+          navigate("/");
         } else {
           alert("Unexpected response status: " + res.status);
         }
@@ -75,7 +75,7 @@ function SignUp() {
     <div>
       <div className={classes.container}>
         <div className={classes.image}>
-        <div className={classes.videoContainer}>
+          <div className={classes.videoContainer}>
             <video autoPlay muted loop className={classes.video}>
               <source src={video} type="video/mp4" />
             </video>
@@ -120,7 +120,9 @@ function SignUp() {
               />
             </div>
             {!isEmail && (
-              <span className={classes.errorMessage}>Please enter a valid email</span>
+              <span className={classes.errorMessage}>
+                Please enter a valid email
+              </span>
             )}
             <div className={classes.inputContainer}>
               <icons.BsLock className={classes.icon} />
@@ -163,7 +165,9 @@ function SignUp() {
             <button type="button" className="submit" onClick={handleSignup}>
               Create Account
             </button>
-            {errorMessage && <p className={classes.errorMessage}>{errorMessage}</p>}
+            {errorMessage && (
+              <p className={classes.errorMessage}>{errorMessage}</p>
+            )}
           </form>
         </div>
       </div>

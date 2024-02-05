@@ -7,11 +7,27 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 function ArtPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkJWTCookie = () => {
+      const jwtCookie = Cookies.get("JWT");
+
+      if (!jwtCookie) {
+        // Redirect to a 404 page or any other page of your choice
+        navigate("/err");
+      }
+    };
+
+    checkJWTCookie();
+  }, [navigate]);
   const { artId } = useParams();
   const [data, setData] = useState({});
   const [artistImages, setArtistImges] = useState([]);
   const [image, setImage] = useState();
+  const [bought, setBought] = useState(false);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/art/${artId}`, {
@@ -22,13 +38,16 @@ function ArtPage() {
       .then((res) => {
         setData(res.data);
         const imageUrl = res.data.imageUrl;
+        if (res.data.ownerId == localStorage.getItem("userId")) {
+          setBought(true);
+        }
         if (imageUrl) {
           setImage(require(`../src/uploads/${imageUrl}`));
         }
       })
       .catch((err) => console.log(err));
   }, [artId]);
-  
+
   useEffect(() => {
     axios
       .get(`http://localhost:5000/art/fetchAllByArtist/${data.artistId}`, {
@@ -41,7 +60,26 @@ function ArtPage() {
       })
       .catch((err) => console.log(err));
   }, [data.artistId]);
-  
+  function buy() {
+    axios
+      .patch(
+        `http://localhost:5000/art/${artId}`,
+        { ownerId: localStorage.getItem("userId") },
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get("JWT")}`,
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status == 200) {
+          alert("item added to assets");
+        }
+      })
+      .catch((res) => {
+        console.log(res);
+      });
+  }
   return (
     <div className={classes.main}>
       <Nav />
@@ -57,14 +95,14 @@ function ArtPage() {
             {data.description}
           </p>
         </div>
-        <div className={classes.price}>
-          <h3>{`Current Buying price ${data.price}$`}</h3>
-          <form>
-            <button type="submit" className={classes.btn}>
+        {!bought && (
+          <div className={classes.price}>
+            <h3>{`Current Buying price ${data.price}$`}</h3>
+            <button type="submit" className={classes.btn} onClick={buy}>
               BUY
             </button>
-          </form>
-        </div>
+          </div>
+        )}
       </div>
       <div className={classes.other}>
         <div className={classes.otherTitle}>
@@ -77,18 +115,13 @@ function ArtPage() {
           </button>
         </div>
         <div className={classes.otherContent}>
-        {
-        artistImages
-          .map((art, index) => {
+          {artistImages.map((art, index) => {
             console.log(art);
             const val = art.imageUrl;
             const artImage = require(`../src/uploads/${val}`);
             return (
               <div className={classes.card} key={index}>
-                <Link
-                  to={`/artPage/${art._id}`}
-                  style={{ color: "white" }}
-                >
+                <Link to={`/artPage/${art._id}`} style={{ color: "white" }}>
                   <img src={artImage} alt={`Artwork by ${art.artist}`} />
                   <div className={classes.container}>
                     <h4>

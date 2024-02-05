@@ -2,16 +2,28 @@ import { CiGlobe, CiInstagram, CiTwitter, CiYoutube } from "react-icons/ci";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import classes from "./css/profile.module.css";
-import art from "./images/home-art.jpeg";
-import art1 from "./images/art1.jpeg";
 import art7 from "./images/art7.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
-
+import { useNavigate } from "react-router-dom";
 function Profile() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkJWTCookie = () => {
+      const jwtCookie = Cookies.get("JWT");
+
+      if (!jwtCookie) {
+        // Redirect to a 404 page or any other page of your choice
+        navigate("/err");
+      }
+    };
+
+    checkJWTCookie();
+  }, [navigate]);
   const [user, setUser] = useState({});
   const { userId } = useParams();
 
@@ -36,7 +48,7 @@ function Profile() {
         <div className={classes.overlay}>
           <img src={art7} alt="profile" className={classes.back}></img>
         </div>
-        <img src={user.profilePic} alt="image1" className={classes.small}></img>
+        <img src={user.imageUrl} alt="image1" className={classes.small}></img>
       </div>
       <div className={classes.content}>
         <div className={classes.left}>
@@ -60,7 +72,6 @@ function Profile() {
           <Link className={classes.btni} to={`/sell/${userId}`}>
             Sell
           </Link>
-          <Link className={classes.btn}>EditProfile</Link>
         </div>
       </div>
       <Footer />

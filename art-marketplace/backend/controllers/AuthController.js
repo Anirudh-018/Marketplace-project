@@ -1,17 +1,21 @@
 const UserModel = require("../models/user");
 const bcrypt = require("bcrypt");
 const JWT = require("../strategies/JWT");
+const axios = require("axios");
 const Authcontroller = {
   async signup(req, res) {
     const data = req.body;
     if (data.password === data.confirm) {
       try {
+        const image = await axios.get("https://randomuser.me/api");
         if (!(await UserModel.findOne({ userName: data.name }))) {
           const user = await UserModel.create({
             userName: data.name,
             email: data.email,
             password: await bcrypt.hash(data.password, 10),
+            imageUrl: image.data.results[0].picture.large,
           });
+          console.log(user);
           if (user) {
             res.status(201).send("User created successfully"); // Fix: use 'status' instead of 'sendStatus'
           } else {
@@ -70,7 +74,9 @@ const Authcontroller = {
       res.clearCookie("JWT");
       console.log("logged out");
       res.status(200).send("logged out");
-    } catch (e) {res.status(500).send("Internal server error")}
+    } catch (e) {
+      res.status(500).send("Internal server error");
+    }
   },
 };
 module.exports = Authcontroller;

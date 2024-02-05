@@ -7,8 +7,22 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Cookies from "js-cookie";
-
+import { useNavigate } from "react-router-dom";
 function Artist() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkJWTCookie = () => {
+      const jwtCookie =Cookies.get("JWT")
+
+      if (!jwtCookie) {
+        // Redirect to a 404 page or any other page of your choice
+        navigate('/err')
+      }
+    };
+
+    checkJWTCookie();
+  }, [navigate]);
   const [user, setUser] = useState({});
   const { userId } = useParams();
 
